@@ -1,15 +1,15 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/Users/melchisalins/Downloads/mflowgithub",
+	"sourceRoot": "/tmp/website",
 	"sources": [
 		"assets/main.sass",
-		"assets/_variables.sass",
-		"assets/_base.sass",
-		"assets/_fonts.sass",
-		"assets/_nav.sass",
-		"assets/_components.sass",
-		"assets/_utils.sass"
+		"../../../tmp/website/assets/_variables.sass",
+		"../../../tmp/website/assets/_base.sass",
+		"../../../tmp/website/assets/_fonts.sass",
+		"../../../tmp/website/assets/_nav.sass",
+		"../../../tmp/website/assets/_components.sass",
+		"../../../tmp/website/assets/_utils.sass"
 	],
 	"sourcesContent": [
 		"@import 'variables';\n@import 'base';\n@import 'fonts';\n@import 'nav';\n@import 'components';\n@import 'utils';\n",
