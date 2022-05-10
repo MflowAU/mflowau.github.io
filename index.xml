@@ -5,10 +5,6 @@
     <link>http://mflowau.github.io/</link>
     <description>Recent content on MFlow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    
-	<atom:link href="http://mflowau.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language><atom:link href="http://mflowau.github.io/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
