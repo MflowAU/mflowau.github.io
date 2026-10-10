@@ -140,6 +140,7 @@ abbr[title] { text-decoration: none; }
 }
 .lead { font-size: clamp(1.1875rem, 1.6vw, 1.375rem); line-height: 1.5; max-width: 30em; text-wrap: pretty; }
 .lead a { color: var(--ledger); text-decoration-color: var(--signal); }
+.lead-note { margin-top: 14px; font-size: 1.125rem; font-style: italic; color: var(--muted); }
 
 .contents { margin-top: clamp(36px, 5vw, 64px); }
 .contents-title { display: flex; justify-content: space-between; gap: 12px; font: inherit; padding-bottom: 10px; border-bottom: 1px solid var(--ink); }
@@ -249,7 +250,7 @@ figcaption { margin-top: 14px; }
   padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: clamp(28px, 4vw, 48px);
 }
 .chapter-no { grid-column: 1 / span 2; font: 400 clamp(3rem, 6vw, 5.5rem)/.8 var(--display); color: var(--ledger); }
-.chapter-title { grid-column: 3 / span 7; font: 400 clamp(1.75rem, 3vw, 2.75rem)/1.08 var(--display); letter-spacing: .02em; text-wrap: balance; }
+.chapter-title { grid-column: 3 / span 7; font: 400 clamp(1.5rem, 3vw, 2.75rem)/1.08 var(--display); letter-spacing: .02em; text-wrap: balance; overflow-wrap: break-word; }
 .chapter-meta { grid-column: 10 / span 3; justify-self: end; text-align: right; color: var(--muted); font-weight: 400; }
 .chapter-intro { font-size: 1.25rem; line-height: 1.5; max-width: 32em; color: var(--ink); text-wrap: pretty; }
 .chapter > .chapter-intro { margin-left: calc((100% + 24px) / 12 * 2); margin-bottom: clamp(32px, 5vw, 64px); }
@@ -279,7 +280,7 @@ figcaption { margin-top: 14px; }
 .product-copy { grid-column: 3 / span 4; }
 .product .fig { grid-column: 7 / span 6; }
 .product-no { display: flex; align-items: center; gap: 1.2em; color: var(--muted); }
-.product-name { margin-top: 18px; font: 400 clamp(2.75rem, 5vw, 4.5rem)/.95 var(--display); letter-spacing: .03em; color: var(--ink); }
+.product-name { margin-top: 18px; font: 400 clamp(1.75rem, 3vw, 2.75rem)/1.08 var(--display); letter-spacing: .02em; color: var(--ink); text-wrap: balance; }
 .product-line { margin-top: 14px; font-size: 1.375rem; line-height: 1.35; font-style: italic; }
 .product-copy > p:not(.product-no):not(.product-line):not(.note):not(.product-actions) { margin-top: 16px; }
 
@@ -306,7 +307,8 @@ figcaption { margin-top: 14px; }
 .contact-main { grid-column: 3 / span 6; }
 .topics { grid-column: 9 / span 4; align-self: start; }
 .topics-title { color: var(--muted); font-weight: 400; padding-bottom: 8px; border-bottom: 1px solid var(--ink); }
-.contact-email { margin-top: 28px; font: 400 clamp(1.25rem, 2.6vw, 2.25rem)/1.2 var(--display); letter-spacing: .02em; overflow-wrap: anywhere; }
+.contact-lead { margin-top: 18px; max-width: 32em; }
+.contact-email { margin-top: 20px; font: 400 clamp(1.25rem, 2.6vw, 2.25rem)/1.2 var(--display); letter-spacing: .02em; overflow-wrap: anywhere; }
 .contact-email a { text-decoration: none; background: linear-gradient(var(--signal), var(--signal)) left bottom / 0 2px no-repeat; padding-bottom: 4px; transition: background-size 400ms var(--ease); }
 .contact-email a:hover, .contact-email a:focus-visible { background-size: 100% 2px; color: var(--ink); }
 .contact-tools { margin-top: 20px; display: flex; align-items: center; gap: 16px; min-height: 2.6em; }
@@ -324,12 +326,18 @@ figcaption { margin-top: 14px; }
 }
 .colophon-mark { grid-column: 1 / span 2; color: var(--ink); }
 .colophon-mark .logo { width: 44px; height: auto; }
+.colophon-tagline { grid-column: 3 / -1; font: 400 clamp(1.125rem, 2vw, 1.5rem)/1.2 var(--display); letter-spacing: .03em; }
 .colophon-facts { grid-column: 3 / span 6; display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 8px 36px; }
 .colophon-facts dt { color: var(--muted); font-weight: 400; }
 .colophon-facts dd { font-size: 1rem; }
 .colophon-nav { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 6px; font-size: 1rem; }
 .colophon-nav a { text-decoration: none; }
 .colophon-nav a:hover { text-decoration: underline; }
+.colophon-work { grid-column: 3 / -1; font-size: 1rem; }
+.colophon-work .label { margin-right: 1em; color: var(--muted); font: 400 .75rem/1.5 var(--display); letter-spacing: .09em; }
+.colophon-work a { text-decoration: none; }
+.colophon-work a:hover { text-decoration: underline; }
+.colophon-work .sep { margin-inline: .5em; color: var(--rule-strong); }
 .colophon-note { grid-column: 3 / -1; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9375rem; }
 
 /* ------------------------------------------------------------------ documents (privacy, 404) */
@@ -392,7 +400,7 @@ figcaption { margin-top: 14px; }
   .cover, .chapter-body, .product, .colophon, .doc, .doc-head { grid-template-columns: minmax(0, 1fr); }
   .cover-head, .cover-copy, .fig-cover, .company-story, .principles, .product-copy, .product .fig,
   .contact-main, .topics, .colophon-mark, .colophon-facts,
-  .colophon-nav, .colophon-note, .doc-head .display, .doc-head .chapter-no, .doc-meta, .doc-lede, .doc-toc, .doc-body, .fig-404 { grid-column: 1 / -1; }
+  .colophon-nav, .colophon-note, .colophon-tagline, .colophon-work, .doc-head .display, .doc-head .chapter-no, .doc-meta, .doc-lede, .doc-toc, .doc-body, .fig-404 { grid-column: 1 / -1; }
   .cover-copy { display: block; }
   .cover-copy .contents { margin-top: clamp(36px, 5vw, 64px); }
   .fig-cover { margin-top: 40px; }
@@ -418,6 +426,8 @@ figcaption { margin-top: 14px; }
   .fig-frame { padding: 28px 22px 22px; }
   .contents .leader { display: none; }
   .spec div { grid-template-columns: 1fr; gap: 2px; }
+  .chapter-head { grid-template-columns: minmax(0, 1fr); row-gap: 12px; }
+  .chapter-no, .chapter-title { grid-column: 1; }
   .colophon-facts { grid-template-columns: 1fr 1fr; }
 }
 
